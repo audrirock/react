@@ -1,0 +1,188 @@
+
+
+
+
+
+
+<!-- bootstrap allows for editing, must hit enter to save -->
+
+function onAfterSaveCell(row, cellName, cellValue){				
+  console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
+  console.log("The whole row :");
+  console.log(row);
+}
+var cellEditProp = {
+  mode: "click",
+  blurToSave: true,
+  afterSaveCell: onAfterSaveCell
+}
+<BootstrapTable data={people} cellEdit={cellEditProp}>
+  <TableHeaderColumn dataField="id" isKey={true}>People</TableHeaderColumn>
+  <TableHeaderColumn dataField="Name" editable={false}>Name</TableHeaderColumn>
+  <TableHeaderColumn dataField="Location" editable={true}>Location</TableHeaderColumn>
+  <TableHeaderColumn dataField="Mile" editable={true}>Mile</TableHeaderColumn>
+  <TableHeaderColumn dataField="ShiftTime" editable={true}>ShiftTime</TableHeaderColumn>
+  <TableHeaderColumn dataField="ShiftDay" editable={true}>ShiftDay</TableHeaderColumn>
+  <TableHeaderColumn dataField="Crew" editable={true}>Crew</TableHeaderColumn>
+  <TableHeaderColumn dataField="Position" editable={false}>Position</TableHeaderColumn>
+</BootstrapTable>
+
+
+
+
+
+
+
+
+<!-- bootstrap allows for editing, must hit enter to save -->
+
+function onAfterSaveCell(row, cellName, cellValue){				
+  console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
+  console.log("The whole row :");
+  console.log(row);
+}
+var cellEditProp = {
+  mode: "click",
+  blurToSave: true,
+  afterSaveCell: onAfterSaveCell
+}
+<BootstrapTable data={products} cellEdit={cellEditProp}>
+  <TableHeaderColumn dataField="id" isKey={true}>Product ID</TableHeaderColumn>
+  <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
+  <TableHeaderColumn dataField="price" editable={false}>Product Price</TableHeaderColumn>
+</BootstrapTable>
+
+
+
+
+<!-- this is the css for their tables -->
+
+
+<link rel="stylesheet" href="path/to/react-bootstrap-table/css/react-bootstrap-table-all.min.css">
+<!-- this is what they have for how to create the table -->
+var React = require('react');
+var ReactBsTable  = require('react-bootstrap-table');
+var BootstrapTable = ReactBsTable.BootstrapTable;
+var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
+
+// products will be presented by ReactBsTable
+var products = [
+  {
+      id: 1,
+      name: "Product1",
+      price: 120
+  },{
+      id: 2,
+      name: "Product2",
+      price: 80
+  },{
+      id: 3,
+      name: "Product3",
+      price: 207
+  },{
+      id: 4,
+      name: "Product4",
+      price: 100
+  },{
+      id: 5,
+      name: "Product5",
+      price: 150
+  },{
+      id: 6,
+      name: "Product1",
+      price: 160
+  }
+];
+
+React.render(
+  <BootstrapTable data={products} striped={true} hover={true}>
+      <TableHeaderColumn isKey={true} dataField="id">Product ID</TableHeaderColumn>
+      <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
+      <TableHeaderColumn dataField="price">Product Price</TableHeaderColumn>
+  </BootstrapTable>,
+    document.getElementById("basic")
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- //define table -->
+<BootstrapTable data={products}>
+  <TableHeaderColumn dataField="id" isKey={true}>Product ID</TableHeaderColumn>
+  <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
+  <TableHeaderColumn dataField="price">Product Price</TableHeaderColumn>
+</BootstrapTable>
+
+
+
+
+
+<!-- //supposedly auto update table -->
+
+
+var ReactBsTable  = require('react-bootstrap-table');
+var BootstrapTable = ReactBsTable.BootstrapTable;
+var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
+var TableDataSet = ReactBsTable.TableDataSet; //import TableDataSet
+
+var dataSet = new TableDataSet(products);
+<BootstrapTable data={dataSet}>
+  <TableHeaderColumn dataField="id" isKey={true}>Product ID</TableHeaderColumn>
+  <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
+  <TableHeaderColumn dataField="price">Product Price</TableHeaderColumn>
+</BootstrapTable>
+<!-- // ...
+// in any time, you want to update or reset data on table, you can:
+dataSet.setData(newProdcuts);
+// the table data will be updated auto
+// -->
+
+
+
+<!-- //?? insert delete row??? Maybe? This is really only necessary for like firing or something... not sure if we should add this at all-->
+
+
+var selectRowProp = {
+  mode: "radio", // or checkbox
+  clickToSelect: true
+};
+<BootstrapTable data={products} insertRow={true} deleteRow={true} selectRow={selectRowProp}>
+  <TableHeaderColumn dataField="id" isKey={true}>Product ID</TableHeaderColumn>
+  <TableHeaderColumn dataField="name">Product Name</TableHeaderColumn>
+  <TableHeaderColumn dataField="price">Product Price</TableHeaderColumn>
+</BootstrapTable>

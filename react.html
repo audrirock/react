@@ -1,0 +1,110 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="React_Bootstrap/css/react-bootstrap-table-all.min.css"> 
+<script src="https://fb.me/react-0.14.7.js">	
+</script>
+<script src="https://fb.me/react-dom-0.14.7.js">	
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js">
+</script> 
+<script src="React_Bootstrap/React_Bootstrap/dist/react-bootstrap-table.min.js">
+</script>
+<script>
+  var ReactBsTable = window.BootstrapTable;
+</script> 
+    <script>
+        function onAfterSaveCell(row, cellName, cellValue) {
+            console.log("Save cell '" + cellName + "' with value '" + cellValue + "'");
+            console.log("The whole row :");
+            console.log(row);
+        }
+        var cellEditProp = {
+            mode: "click",
+            blurToSave: true,
+            afterSaveCell: onAfterSaveCell
+        }
+    </script>
+    <script>
+var selectRowProp = {
+  mode: "radio", // or checkbox
+  clickToSelect: true
+};
+</script>
+</head>
+
+<body>
+
+
+
+<div id="people"></div>
+<script type="text/babel">
+var people=[{
+  id: 123,
+  Name: "Fred",
+  Position: "EXTERNAL CONTACT!!!!!" ,
+  Location: "here",
+  Mile: 123,
+  ShiftTime: "10 PM",
+  ShiftDay: "Friday",
+  Crew: "People"
+},
+    {
+    id: 122,
+    Name: "Cannibal George",
+    Position: "Chef" ,
+    Location: "here",
+    Mile: 122,
+    ShiftTime: "10 PM",
+    ShiftDay: "Friday",
+    Crew: "People"},
+    {
+    id: 13,
+    Name: "Jerry",
+    Position: "Leader",
+    Location: "here",
+    Mile: 121,
+    ShiftTime: "10 PM",
+    ShiftDay: "Friday",
+    Crew: "People"},
+    {
+    id: 143,
+    Name: "Bob",
+    Position: "Crew" ,
+    Location: "here",
+    Mile: 120,
+    ShiftTime: "10 PM",
+    ShiftDay: "Friday",
+    Crew: "People"}]
+// var ReactBsTable  = require('react-bootstrap-table');
+// var BootstrapTable = ReactBsTable.BootstrapTable;
+// var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
+// var TableDataSet = ReactBsTable.TableDataSet;
+// var dataSet = new TableDataSet(products);
+var options = {
+    afterInsertRow: function(row) {
+        console.log(row);
+    }
+};
+ReactDOM.render(<BootstrapTable data={people} cellEdit={cellEditProp} search={true} columnFilter={true} deleteRow={true} selectRow={selectRowProp}
+                                insertRow={true} striped={true} hover={true} condensed={true} height="750" pagination={true} options={options}>
+  <TableHeaderColumn dataField="id" isKey={true} hidden={true}>People</TableHeaderColumn>
+  <TableHeaderColumn dataField="Name" dataSort={true} editable={true}>Name</TableHeaderColumn>
+  <TableHeaderColumn dataField="Position" dataSort={true} editable={true}>Position</TableHeaderColumn>
+  <TableHeaderColumn dataField="Location" dataSort={true} editable={true}>Location</TableHeaderColumn>
+  <TableHeaderColumn dataField="Mile" dataSort={true} editable={true}>Mile</TableHeaderColumn>
+  <TableHeaderColumn dataField="ShiftTime" dataSort={true} editable={true}>ShiftTime</TableHeaderColumn>
+  <TableHeaderColumn dataField="ShiftDay" dataSort={true} editable={true}>ShiftDay</TableHeaderColumn>
+  <TableHeaderColumn dataField="Crew" dataSort={true} editable={true}>Crew</TableHeaderColumn>
+ </BootstrapTable>, 
+document.getElementById('people'));
+// dataSet.setData(newProdcuts);
+</script>
+
+</body>
+</html>
