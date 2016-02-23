@@ -9,15 +9,22 @@
 <link rel="stylesheet" href="React_Bootstrap/css/react-bootstrap-table-all.min.css"> 
 <script src="https://fb.me/react-0.14.7.js">	
 </script>
-<script src="https://fb.me/react-dom-0.14.7.js">	
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.28.3/react-bootstrap.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.28.3/react-bootstrap.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.28.3/react-bootstrap.min.js.map">
+</script>-->
+<script src="https://fb.me/react-dom-0.14.7.js">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js">
-</script> 
+</script>
 <script src="React_Bootstrap/React_Bootstrap/dist/react-bootstrap-table.min.js">
 </script>
+
 <script>
   var ReactBsTable = window.BootstrapTable;
-</script> 
+</script>
     <script>
         function onAfterSaveCell(row, cellName, cellValue) {
             console.log("Save cell '" + cellName + "' with value '" + cellValue + "'");
@@ -29,13 +36,89 @@
             blurToSave: true,
             afterSaveCell: onAfterSaveCell
         }
-    </script>
+    </script>   <!--
+        //function addPeople(quantity) {
+           // var startId = people.length;
+           // for (var i = 0; i < quantity; i++) {
+           //     var id = startId + i;
+       //         people.push({
+          //          id: id,
+       //             Name: "Name " + id,
+       //             Position: "Job Position " + id,
+       //             Location: "Location " + id,
+    //                Mile: "Last Mile Checkin " + id,
+     //              ShiftTime: "Shift time " + id,
+       //             ShiftDay: "Shift Days " + id,
+    //                Crew: "Which Crew " + id
+    //            });
+   //         }
+   //     }
+
+    //    addPeople(5);
+
+  //  function onAfterInsertRow(row){
+  //  console.log("onAfterInsertRow");
+  //  console.log(row);
+        }
+     //   function onAfterInsertRow(row) {
+       //     var newRowStr = "";
+        //
+          //  for (var prop in row) {
+//                newRowStr += prop + ": " + row[prop] + " \n";
+  //          }
+    //        alert("The new row is:\n " + newRowStr);
+      //  }
+
+     //   var options = {
+    //       afterInsertRow: onAfterInsertRow
+   //         };
+                    // var ReactBsTable  = require('react-bootstrap-table');
+// var BootstrapTable = ReactBsTable.BootstrapTable;
+// var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
+// var TableDataSet = ReactBsTable.TableDataSet;
+// var dataSet = new TableDataSet(products);
+                    -->
+    <script>
+        function addPeople(quantity) {
+             var startId = people.length;
+             for (var i = 0; i < quantity; i++) {
+                 var id = startId + i;
+                     people.push({
+                      id: id,
+                         Name: "Name " + id,
+                         Position: "Job Position " + id,
+                         Location: "Location " + id,
+                         Mile: "Last Mile Checkin " + id,
+                         ShiftTime: "Shift time " + id,
+                         ShiftDay: "Shift Days " + id,
+                         Crew: "Which Crew " + id
+                        });
+                     }
+        }
+        </script>
+    <script>
+        addPeople(1);
+        </script>
+  <!--  <script>
+        function onAfterInsertRow(row) {
+            console.log("onAfterInsertRow");
+            console.log(row);
+        }
+    </script>-->
+    <script>
+
+        </script>
     <script>
 var selectRowProp = {
-  mode: "radio", // or checkbox
+  mode: "radio", // checkbox or radio
   clickToSelect: true
 };
 </script>
+    <script>
+        function format(cell, row) {
+            return '<i class="glyphicon glyphicon-usd"></i> ' + cell;
+        }
+    </script>
 </head>
 
 <body>
@@ -45,47 +128,43 @@ var selectRowProp = {
 <div id="people"></div>
 <script type="text/babel">
 var people=[{
-  id: 123,
+  id: 1,
   Name: "Fred",
   Position: "EXTERNAL CONTACT!!!!!" ,
   Location: "here",
-  Mile: 123,
+  Mile: "123",
   ShiftTime: "10 PM",
   ShiftDay: "Friday",
   Crew: "People"
 },
     {
-    id: 122,
+    id: 2,
     Name: "Cannibal George",
     Position: "Chef" ,
     Location: "here",
-    Mile: 122,
+    Mile: "122",
     ShiftTime: "10 PM",
     ShiftDay: "Friday",
     Crew: "People"},
     {
-    id: 13,
+    id: 3,
     Name: "Jerry",
     Position: "Leader",
     Location: "here",
-    Mile: 121,
+    Mile: "121",
     ShiftTime: "10 PM",
     ShiftDay: "Friday",
     Crew: "People"},
     {
-    id: 143,
+    id: 4,
     Name: "Bob",
     Position: "Crew" ,
     Location: "here",
-    Mile: 120,
+    Mile: "120",
     ShiftTime: "10 PM",
     ShiftDay: "Friday",
     Crew: "People"}]
-// var ReactBsTable  = require('react-bootstrap-table');
-// var BootstrapTable = ReactBsTable.BootstrapTable;
-// var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
-// var TableDataSet = ReactBsTable.TableDataSet;
-// var dataSet = new TableDataSet(products);
+
 var options = {
     afterInsertRow: function(row) {
         console.log(row);
@@ -103,7 +182,7 @@ ReactDOM.render(<BootstrapTable data={people} cellEdit={cellEditProp} search={tr
   <TableHeaderColumn dataField="Crew" dataSort={true} editable={true}>Crew</TableHeaderColumn>
  </BootstrapTable>, 
 document.getElementById('people'));
-// dataSet.setData(newProdcuts);
+
 </script>
 
 </body>
